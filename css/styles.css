@@ -10,6 +10,9 @@ body {
     min-height: 90vh;
     display: flex;
     flex-direction: column;
+    background-image: url("../images/tlo.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav {
@@ -98,6 +101,7 @@ article {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     margin-bottom: 50px;
     transition: all .2s ease-in-out;
+    background-color: white;
 }
 
 .floating-left {
@@ -141,6 +145,7 @@ article h1 {
     border-radius: 5px;
     width: 200px;
     transition: all .2s ease-in-out;
+    background-color: white;
 }
 
 .continue-reading-link:hover {
