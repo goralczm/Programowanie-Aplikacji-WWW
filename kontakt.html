@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="pl" />
+    <meta name="Author" content="Maciej Góralczyk" />
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/contact.css"/>
+    <title>Kontakt</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+                <b>Turteles</b>
+            </div>
+            <li><a href="index.html">Trochę wstępu o żółwiach</a></li>
+            <li><a href="jakzaczac.html">Jak zacząć?</a></li>
+            <li><a href="jedenczykilka.html">Jeden żółw czy kilka?</a></li>
+            <li><a href="wskazowki.html">Cenne wskazówki</a></li>
+            <li><a href="akcesoria.html">Akcesoria</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner">
+        <img src="images/zol15.jfif" alt="" style="transform: translateY(-400px);">
+        <h1>Kontakt</h1>
+    </div>
+    
+    <div class="contact-form">
+        <h2>Chcesz się z nami skontaktować? Zostaw nam wiadmość!</h2>
+        <br>
+
+        <form action="mailto:169241@student.uwm.edu.pl" method="post">
+            <div class="contact-form-input">
+                <label for="name">Imie i Nazwisko<span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="contact-form-input">
+                <label for="email">Adres Email<span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="contact-form-input">
+                <label for="message">Wiadmość<span class="required">*</span></label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <div class="contact-form-input">
+                <button type="submit">Wyślij</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        Maciej Góralczyk @ Programowanie Aplikacji WWW
+    </footer>
+</body>
+</html>
