@@ -27,24 +27,38 @@
                 <img src="images/logo.png" alt="">
                 <b>Turteles</b>
             </div>
-            <li><a href="index.php?idp=wstep.php">Trochę wstępu o żółwiach</a></li>
-            <li><a href="index.php?idp=jakzaczac.php">Jak zacząć?</a></li>
-            <li><a href="index.php?idp=jedenczykilka.php">Jeden żółw czy kilka?</a></li>
-            <li><a href="index.php?idp=wskazowki.php">Cenne wskazówki</a></li>
-            <li><a href="index.php?idp=akcesoria.php">Akcesoria</a></li>
-            <li><a href="index.php?idp=filmy.php">Filmy</a></li>
-            <li><a href="index.php?idp=kontakt.php">Kontakt</a></li>
+            <li><a href="index.php">Trochę wstępu o żółwiach</a></li>
+            <li><a href="index.php?idp=jakzaczac">Jak zacząć?</a></li>
+            <li><a href="index.php?idp=jedenczykilka">Jeden żółw czy kilka?</a></li>
+            <li><a href="index.php?idp=wskazowki">Cenne wskazówki</a></li>
+            <li><a href="index.php?idp=akcesoria">Akcesoria</a></li>
+            <li><a href="index.php?idp=filmy">Filmy</a></li>
+            <li><a href="index.php?idp=kontakt">Kontakt</a></li>
         </ul>
     </nav>
 
     <?php
-        $podstrona = "";
-        if (isset($_GET['idp']) && file_exists('php/'.$_GET['idp']))
-            $podstrona = $_GET['idp'];
-        else
-            $podstrona = "wstep.php";
+        include('php/cfg.php');
+        
+        if (isset($_GET['idp']))
+        {
+            $id_clear = htmlspecialchars($_GET['idp']);
 
-        include('php/'.$podstrona);
+            $query = 'SELECT * FROM pages WHERE Title = "'.$id_clear.'" LIMIT 1';
+            $result = mysqli_query($connection, $query);
+            $row = mysqli_fetch_array($result);
+
+            if (mysqli_num_rows($result) == 0)
+            {
+                echo "ERROR 404: Nie znaleziono szukanej strony!";
+                include('php/wstep.php');
+                return;
+            }
+
+            echo $row['Content'];
+        }
+        else
+            include('php/wstep.php');
     ?>
 
     <footer>
