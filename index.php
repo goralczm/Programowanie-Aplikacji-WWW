@@ -24,7 +24,7 @@
     <nav>
         <ul>
             <div class="logo">
-                <img src="../../images/logo.png" alt="">
+                <img src="images/logo.png" alt="">
                 <b>Turteles</b>
             </div>
             <li><a href="index.php?idp=wstep.php">Trochę wstępu o żółwiach</a></li>
@@ -32,13 +32,14 @@
             <li><a href="index.php?idp=jedenczykilka.php">Jeden żółw czy kilka?</a></li>
             <li><a href="index.php?idp=wskazowki.php">Cenne wskazówki</a></li>
             <li><a href="index.php?idp=akcesoria.php">Akcesoria</a></li>
+            <li><a href="index.php?idp=filmy.php">Filmy</a></li>
             <li><a href="index.php?idp=kontakt.php">Kontakt</a></li>
         </ul>
     </nav>
 
     <?php
         $podstrona = "";
-        if (isset($_GET['idp']))
+        if (isset($_GET['idp']) && file_exists('php/'.$_GET['idp']))
             $podstrona = $_GET['idp'];
         else
             $podstrona = "wstep.php";
