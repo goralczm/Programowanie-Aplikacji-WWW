@@ -33,12 +33,14 @@
             <li><a href="index.php?idp=wskazowki">Cenne wskazówki</a></li>
             <li><a href="index.php?idp=akcesoria">Akcesoria</a></li>
             <li><a href="index.php?idp=filmy">Filmy</a></li>
+            <li><a href="index.php?idp=panel_cms">Panel CMS</a></li>
             <li><a href="index.php?idp=kontakt">Kontakt</a></li>
         </ul>
     </nav>
 
     <?php
         include('php/cfg.php');
+        include('php/admin.php');
         
         if (isset($_GET['idp']))
         {
@@ -50,8 +52,17 @@
 
             if (mysqli_num_rows($result) == 0)
             {
-                echo "ERROR 404: Nie znaleziono szukanej strony!";
-                include('php/wstep.php');
+                $path = 'php/'.$id_clear.'.php';
+                if (file_exists($path))
+                {
+                    include($path);
+                }
+                else
+                {
+                    echo "ERROR 404: Nie znaleziono szukanej strony!";
+                    include('php/wstep.php');
+                }
+
                 return;
             }
 

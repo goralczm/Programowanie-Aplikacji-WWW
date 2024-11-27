@@ -2,7 +2,9 @@ function getDate()
 {
     date = new Date();
     formattedDate = "" + date.getDate() + "." + (date.getMonth() + 1) + "." + (date.getYear() - 100);
-    document.getElementById("data").innerHTML = formattedDate;
+    var dataObj = document.getElementById("data");
+    if (dataObj != null)
+        dataObj.innerHTML = formattedDate;
 }
 
 var timerID = null;
@@ -32,7 +34,9 @@ function showTime()
     formattedTime += ((minutes < 10) ? ":0" : ":") + minutes;
     formattedTime += ((seconds < 10) ? ":0" : ":") + seconds;
     formattedTime += (hours >= 12) ? " P.M." : " A.M";
-    document.getElementById("zegarek").innerHTML = formattedTime;
+    var zegarek = document.getElementById("zegarek");
+    if (zegarek != null)
+        zegarek.innerHTML = formattedTime;
     timerID = setTimeout("showTime()", 1000);
     timerRunning = true;
 }
