@@ -13,5 +13,6 @@
 
     mysqli_query($connection, $query);
 
+    // Wraca do poprzedniej strony
     header("Location: ".$_POST['return_url']);
 ?>

@@ -1,4 +1,5 @@
 <?php
+    // Wyświetla formularz logowania
     function FormularzLogowania()
     {
         $wynik = '
@@ -17,7 +18,8 @@
 
         return $wynik;
     }
-
+    
+    // Wyświetla listę podstron znajdujących się w bazie danych
     function ListaPodstron($connection)
     {
         $query = "SELECT Title FROM pages LIMIT 100";
@@ -35,6 +37,7 @@
         }
     }
 
+    // Czy aktualny użytkownik jest adminem
     function JestAdminem()
     {
         return $_SESSION['Admin'];

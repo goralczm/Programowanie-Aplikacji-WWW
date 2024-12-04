@@ -1,4 +1,6 @@
 <?php
+    // Ustawienia bazy danych i admina
+    
     $host = 'localhost';
     $user = 'root';
     $pass = '';

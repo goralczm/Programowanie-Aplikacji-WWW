@@ -1,4 +1,5 @@
 <?php
+    // Wyświetla formularz kontaktowy
     function PokazKontakt()
     {
         $wynik = '
@@ -19,6 +20,7 @@
         return $wynik;
     }
 
+    // Wyświetla formularz przypomnienia hasła admina
     function FormularzPrzypomnieniaHasla()
     {
         $wynik = '
@@ -37,6 +39,7 @@
         return $wynik;
     }
 
+    // Wysyła maila do odbiorcy
     function WyslijMailaKontakt($odbiorca)
     {
         if (empty($_POST['temat']) || empty($_POST['tresc']) || empty($_POST['email']))
@@ -63,6 +66,7 @@
         }
     }
 
+    // Wysyła maila z loginem i hasłem admina
     function PrzypomnijHasloAdmina($admin_email, $admin_pass)
     {
         if (empty($_POST['email_konta']))

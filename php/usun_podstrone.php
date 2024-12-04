@@ -12,5 +12,6 @@
     $query = "DELETE FROM pages WHERE pages.Title = '{$_POST['title']}'";
     mysqli_query($connection, $query);
 
+    // Wraca do poprzedniej strony
     header("Location: ".$_POST['return_url']);
 ?>

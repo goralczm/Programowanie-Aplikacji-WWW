@@ -39,27 +39,35 @@
     </nav>
 
     <?php
+        // Importuje pliki użytkowe
         include('php/cfg.php');
         include('php/admin.php');
         include('php/contact.php');
         
+        // Jeśli nazwa strony jest przesłana fomularzem GET
         if (isset($_GET['idp']))
         {
+            // Zapobiega Code Injection
             $id_clear = htmlspecialchars($_GET['idp']);
 
             $query = 'SELECT * FROM pages WHERE Title = "'.$id_clear.'" LIMIT 1';
             $result = mysqli_query($connection, $query);
             $row = mysqli_fetch_array($result);
 
+            // Jeśli zapytanie nie zwróciło żadnych rekordów
             if (mysqli_num_rows($result) == 0)
             {
                 $path = 'php/'.$id_clear.'.php';
+
+                // Jeśli ścieżka do pliku istnieje
                 if (file_exists($path))
                 {
+                    // Importuj lokalnie zapisaną stronę
                     include($path);
                 }
                 else
                 {
+                    // Importuje domyślną stronę główną
                     echo "ERROR 404: Nie znaleziono szukanej strony!";
                     include('php/wstep.php');
                 }
@@ -67,6 +75,7 @@
                 return;
             }
 
+            // Wyświetla 'ciało' znalezionej strony
             echo $row['Content'];
         }
         else
