@@ -5,6 +5,8 @@
 
 <?php
     session_start();
+    WyslijMailaKontakt('169241@student.uwm.edu.pl');
+    PrzypomnijHasloAdmina($admin_email, $admin_pass);
     if (isset($_POST['wyloguj']))
     {
         $_SESSION['login_email'] = '';
@@ -20,6 +22,24 @@
 
     $_SESSION['Admin'] = $_SESSION['login_email'] == $admin_email && $_SESSION['login_pass'] == $admin_pass;
 ?>
+
+<div class="container">
+    <article>
+        <h1>Formularz Kontaktowy</h1>
+        <?php
+            echo PokazKontakt();
+        ?>
+    </article>
+</div>
+
+<div class="container">
+    <article>
+        <h1>Odzyskiwanie Hasła</h1>
+        <?php
+            echo FormularzPrzypomnieniaHasla();
+        ?>
+    </article>
+</div>
 
 <?php
 if (JestAdminem())

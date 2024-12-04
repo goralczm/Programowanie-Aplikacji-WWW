@@ -41,6 +41,7 @@
     <?php
         include('php/cfg.php');
         include('php/admin.php');
+        include('php/contact.php');
         
         if (isset($_GET['idp']))
         {
