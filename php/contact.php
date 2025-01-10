@@ -44,7 +44,7 @@
     {
         if (empty($_POST['temat']) || empty($_POST['tresc']) || empty($_POST['email']))
         {
-            echo '[nie_wypelniles_pola]';
+            //echo '[nie_wypelniles_pola]';
             //echo PokazKontakt();
         }
         else
@@ -62,7 +62,7 @@
 
             mail($mail['reciptient'], $mail['subject'], $mail['body'], $header);
 
-            echo '[wiadomosc_wyslana]';
+            //echo '[wiadomosc_wyslana]';
         }
     }
 

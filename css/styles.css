@@ -235,3 +235,21 @@ footer {
     -ms-user-select: none;
     user-select: none;
 }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.products img {
+    width: 100%;
+}

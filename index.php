@@ -34,6 +34,7 @@
             <li><a href="index.php?idp=akcesoria">Akcesoria</a></li>
             <li><a href="index.php?idp=filmy">Filmy</a></li>
             <li><a href="index.php?idp=panel_cms">Panel CMS</a></li>
+            <li><a href="index.php?idp=produkty/pokaz_produkty">Produkty</a></li>
             <li><a href="index.php?idp=kontakt">Kontakt</a></li>
         </ul>
     </nav>
