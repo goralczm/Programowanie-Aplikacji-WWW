@@ -20,8 +20,56 @@
     if (isset($_POST['login_pass']) && $_POST['login_pass'])
         $_SESSION['login_pass'] = $_POST['login_pass'];
 
-    $_SESSION['Admin'] = $_SESSION['login_email'] == $admin_email && $_SESSION['login_pass'] == $admin_pass;
+    if (isset($_POST['login_email']) && isset($_POST['login_pass']))
+        $_SESSION['Admin'] = $_SESSION['login_email'] == $admin_email && $_SESSION['login_pass'] == $admin_pass;
 ?>
+
+<div class="container">
+        <article>
+            <h1>Formularz Kontaktowy</h1>
+            <?php
+                echo PokazKontakt();
+            ?>
+        </article>
+    </div>
+
+    <div class="container">
+        <article>
+            <h1>Odzyskiwanie Hasła</h1>
+            <?php
+                echo FormularzPrzypomnieniaHasla();
+            ?>
+        </article>
+    </div>
+
+    <?php
+    if (JestAdminem())
+    {
+        echo '
+        <div class="container">
+            <article>
+                <h1>Wyloguj</h1>
+                <form action="'.$_SERVER['REQUEST_URI'].'" method="post" class="container">
+                    <table class="logowanie">
+                        <tr><td>&nbsp;</td><td><input type="submit" value="Wyloguj" name="wyloguj" class="logowanie"></td></tr>
+                    </table>
+                </form>
+            </article>
+        </div>';
+    }
+    else
+    {
+        echo '
+        <div class="container">
+            <article>
+                <h1>Formularz Logowania</h1>
+                <div class="article-image floating-left">
+                    <img src="images/zol6.jpg" alt="" style="width: 300px">
+                </div>'.FormularzLogowania().'
+            </article>
+        </div>';
+    }
+    ?>
 
 <?php
 if (!JestAdminem())
@@ -45,7 +93,7 @@ if (!JestAdminem())
                         {
                             for ($i = 0; $i < $glebokosc; $i++)
                                 print("&nbsp&nbsp&nbsp&nbsp");
-                            print("<b>".$row['nazwa']."</b>");
+                            print("<b>".'{'.$row['id'].'} '.$row['nazwa']."</b>");
                             
                             $products_query = "SELECT nazwa FROM products WHERE products.matka = {$row['id']}";
                             $products_result = mysqli_query($connection, $products_query);
@@ -93,6 +141,9 @@ if (!JestAdminem())
                 <label for="sztuki">Sztuki</label>
                 <input type="number" name="sztuki">
                 <br>
+                <label for="status">Status</label>
+                <input type="text" name="status">
+                <br>
                 <label for="matka">Matka</label>
                 <input type="number" name="matka" value=0>
                 <br>
@@ -129,6 +180,9 @@ if (!JestAdminem())
                 <br>
                 <label for="sztuki">Sztuki</label>
                 <input type="number" name="sztuki">
+                <br>
+                <label for="status">Status</label>
+                <input type="text" name="status">
                 <br>
                 <label for="matka">Matka</label>
                 <input type="number" name="matka" value=0>
@@ -170,7 +224,7 @@ if (!JestAdminem())
                         {
                             for ($i = 0; $i < $glebokosc; $i++)
                                 print("&nbsp&nbsp&nbsp&nbsp");
-                            print($row['id'].' '.$row['nazwa']);
+                            print('{'.$row['id'].'} '.$row['nazwa']);
                             print("<br>");
                             printCategory($connection, $row['id'], $glebokosc + 1);
                         }
@@ -289,51 +343,4 @@ if (!JestAdminem())
             </form>
         </article>
     </div>
-
-    <div class="container">
-        <article>
-            <h1>Formularz Kontaktowy</h1>
-            <?php
-                echo PokazKontakt();
-            ?>
-        </article>
-    </div>
-
-    <div class="container">
-        <article>
-            <h1>Odzyskiwanie Hasła</h1>
-            <?php
-                echo FormularzPrzypomnieniaHasla();
-            ?>
-        </article>
-    </div>
-
-    <?php
-    if (JestAdminem())
-    {
-        echo '
-        <div class="container">
-            <article>
-                <h1>Wyloguj</h1>
-                <form action="'.$_SERVER['REQUEST_URI'].'" method="post" class="container">
-                    <table class="logowanie">
-                        <tr><td>&nbsp;</td><td><input type="submit" value="Wyloguj" name="wyloguj" class="logowanie"></td></tr>
-                    </table>
-                </form>
-            </article>
-        </div>';
-    }
-    else
-    {
-        echo '
-        <div class="container">
-            <article>
-                <h1>Formularz Logowania</h1>
-                <div class="article-image floating-left">
-                    <img src="images/zol6.jpg" alt="" style="width: 300px">
-                </div>'.FormularzLogowania().'
-            </article>
-        </div>';
-    }
-    ?>
 </div>

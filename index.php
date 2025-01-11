@@ -35,6 +35,7 @@
             <li><a href="index.php?idp=filmy">Filmy</a></li>
             <li><a href="index.php?idp=panel_cms">Panel CMS</a></li>
             <li><a href="index.php?idp=produkty/pokaz_produkty">Produkty</a></li>
+            <li><a href="index.php?idp=koszyk/pokaz_koszyk">Koszyk</a></li>
             <li><a href="index.php?idp=kontakt">Kontakt</a></li>
         </ul>
     </nav>

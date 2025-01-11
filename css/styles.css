@@ -243,13 +243,39 @@ footer {
     grid-auto-rows: minmax(100px, auto);
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+.grid-layout img {
+    width: 80%;
 }
 
-.products img {
-    width: 100%;
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.products table {
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    transition: all .2s ease-in-out;
+    background-color: white;
+}
+
+.products table, tr, th, td {
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    padding: 10px;
+}
+
+.products table img {
+    height: 60px;
+}
+
+.products table input[type=submit] {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 10px;
 }

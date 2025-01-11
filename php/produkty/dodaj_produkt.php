@@ -12,6 +12,7 @@
         !isset($_POST['cena_netto']) ||
         !isset($_POST['vat']) ||
         !isset($_POST['sztuki']) ||
+        !isset($_POST['status']) ||
         !isset($_POST['matka']) ||
         !isset($_POST['return_url']))
             return;
@@ -24,7 +25,7 @@
         $data = date("Y-m-d");
         $zdjecie = file_get_contents($_FILES['zdjecie']['tmp_name']);
 
-        $stmt = $connection->prepare("INSERT INTO `products` (`id`, `nazwa`, `opis`, `data_utworzenia`, `data_modyfikacji`, `data_wygasniecia`, `cena_netto`, `vat`, `sztuki`, `status`, `matka`, `zdjecie`) VALUES (NULL, '{$_POST["nazwa"]}', '{$_POST["opis"]}', '{$data}', '{$data}', '{$_POST["data_wygasniecia"]}', '{$_POST["cena_netto"]}', '{$_POST["vat"]}', '{$_POST["sztuki"]}', 'Dostepny', '{$_POST["matka"]}', ?)");
+        $stmt = $connection->prepare("INSERT INTO `products` (`id`, `nazwa`, `opis`, `data_utworzenia`, `data_modyfikacji`, `data_wygasniecia`, `cena_netto`, `vat`, `sztuki`, `status`, `matka`, `zdjecie`) VALUES (NULL, '{$_POST["nazwa"]}', '{$_POST["opis"]}', '{$data}', '{$data}', '{$_POST["data_wygasniecia"]}', '{$_POST["cena_netto"]}', '{$_POST["vat"]}', '{$_POST["sztuki"]}', '{$_POST["status"]}', '{$_POST["matka"]}', ?)");
         $stmt->bind_param("s", $zdjecie);
         $stmt->execute();
     }
