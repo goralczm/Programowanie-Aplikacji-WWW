@@ -44,7 +44,7 @@
 
         public function GetSingleCost()
         {
-            return $this->netto_cost + ($this->netto_cost * $this->vat);
+            return $this->netto_cost + ($this->netto_cost * $this->vat / 100);
         }
 
         public function GetTotalCost()
