@@ -33,7 +33,7 @@
 
         while ($row = mysqli_fetch_array($result))
         {
-            print($row['Title'].'<br>');
+            print("<a href='?idp={$row["Title"]}'>".$row['Title'].'</a><br>');
         }
     }
 
